@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { titleColors } from "./App";
 import { LightToDarkSwitch } from "./LightToDarkSwitch";
 import correct from "./images/icon-correct.svg";
 import incorrect from "./images/icon-incorrect.svg";
+import { TitleWColors } from "./TitleWColors";
 
 export function Quiz({
   title, icon, quiz, currentQuestionIndex, setAnswered, answered, handleNextQuestion, selectedOption, setSelectedOption, setIsSubmitted, isSubmitted, pendingOption, setPendingOption, setScore, handleDarkMode, isDarkMode,
 }) {
   const currentQuestion = quiz[currentQuestionIndex];
-  const [active, setActive] = useState(false);
-  const isLastQuestion = currentQuestionIndex === quiz.length - 1;
 
   const progressPercentage = ((currentQuestionIndex + 1) / quiz.length) * 100;
   const labels = ["A", "B", "C", "D"];
@@ -29,18 +27,10 @@ export function Quiz({
     setIsSubmitted(true); // Mark the question as answered
   }
   return (
-    <div className={`px-7 py-5 ${isDarkMode ? 'bg-[#313E51] bg-[url("./images/pattern-background-mobile-dark.svg")] text-white' : 'bg-[#F4F6FA] bg-[url("./images/pattern-background-mobile-light.svg")]'}  min-h-screen `}>
+    <div className={`px-7 py-5 lg:pt-20 md:px-16 ${isDarkMode ? 'bg-[#313E51] bg-[url("./images/pattern-background-mobile-dark.svg")] text-white' : 'bg-[#F4F6FA] bg-[url("./images/pattern-background-mobile-light.svg")]'}  min-h-screen `}>
       <div className="flex justify-between items-center mb-12">
-        <div className="flex items-center gap-3 ">
-          <div
-            style={{ backgroundColor: titleColors[title] }}
-            className=" p-1 rounded-md flex items-center justify-center"
-          >
-            <img src={icon} alt="" />
-          </div>
-          <h2 className="text-lg font-medium">{title}</h2>
-        </div>
-        <div>
+        <TitleWColors title={title} icon={icon}/>
+        <div className="">
           <LightToDarkSwitch
             handleDarkMode={handleDarkMode}
             isDarkMode={isDarkMode} />
@@ -133,3 +123,4 @@ export function Quiz({
     </div>
   );
 }
+

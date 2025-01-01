@@ -3,7 +3,7 @@ import { titleColors } from "./App";
 export function QuizTitle({ title, handleTitle, isDarkMode }) {
   return (
     <li
-      className={`${isDarkMode ? "bg-[#3B4D66] text-white" : "bg-white"} shadow rounded-lg flex items-center py-3 px-3 gap-4`}
+      className={`${isDarkMode ? "bg-[#3B4D66] text-white" : "bg-white"} shadow rounded-2xl flex items-center py-3 px-3 gap-4`}
       onClick={() => handleTitle(title.title)}
     >
       <div

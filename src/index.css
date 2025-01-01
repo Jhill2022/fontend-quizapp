@@ -7,3 +7,12 @@
 body {
   font-family: Rubik, sans-serif;
 }
+
+
+.bg-light-mode {
+  @apply bg-[url("./images/pattern-background-mobile-light.svg")] md:bg-[url("./images/pattern-background-tablet-light.svg")] lg:bg-[url("./images/pattern-background-desktop-light.svg")] bg-no-repeat;
+}
+
+.bg-dark-mode {
+  @apply bg-[url("./images/pattern-background-mobile-dark.svg")] md:bg-[url("./images/pattern-background-tablet-dark.svg")] lg:bg-[url("./images/pattern-background-desktop-dark.svg")] bg-no-repeat;
+}
